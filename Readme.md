@@ -5,5 +5,6 @@ The Dockerfile is based on `node` and will install python, pip, phantomjs and dp
 Run it with
 
 ```
-docker run -t factorial/dpxdt-docker -v /your/local/folder/with/your/tests:/tests test
+docker run -t factorial/dpxdt-docker -v /your/local/folder/with/your/tests:/tests update|test /tests
 ```
+
