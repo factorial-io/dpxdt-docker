@@ -11,6 +11,11 @@ RUN rm -f phantomjs-1.9.8-linux-x86_64.tar.bz2 && rm -rf phantomjs-1.9.8-linux-x
 
 RUN pip install dpxdt
 
-VOLUME ["/tests"]
+RUN git clone https://github.com/factorial-io/beautify-dpxdt.git
+RUN cd beautify-dpxdt && pip install -r requirements.txt
 
-CMD ["dpxdt", "/tests"]
+ADD dpxdt_proxy.sh /usr/local/bin/dpxdt_proxy.sh
+
+VOLUME ["/tests", "/tmp"]
+
+ENTRYPOINT ["/usr/local/bin/dpxdt_proxy.sh"]
